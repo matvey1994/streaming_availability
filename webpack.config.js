@@ -4,12 +4,12 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist/assets/'),
+        path: path.resolve(__dirname, 'dist/assets'),
         filename: 'bundle.js'
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, "dist")
+            directory: path.join(__dirname, "dist"),
         }
     },
     module: {
@@ -22,6 +22,10 @@ module.exports = {
                     presets: ['@babel/preset-env']
                 }
             }
+        },
+        { 
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
         }
     ]
     }
